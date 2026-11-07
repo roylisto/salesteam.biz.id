@@ -1,0 +1,5 @@
+# Storybook distribution illustration
+
+Asset: `distribution-storybook.png`. Generated using built-in image_gen.
+
+Use case: illustration-story. Asset type: wide website illustration for Salesteam distribution management platform. Create a charming polished storybook cartoon illustration, clearly hand-drawn 2D with soft gouache and colored-pencil texture, gentle ink outlines and simplified rounded forms. Scene: a small Indonesian distribution warehouse on the left with stacked cardboard boxes, friendly blue delivery van on a curving lane in the center, two neighborhood retail shops on the right, and a friendly field sales representative carrying a tablet greeting a shopkeeper. Thin whimsical purple route line connects warehouse and shops. Cohesive light blue, periwinkle and purple palette, near-white pale lavender background, warm friendly character expressions, professional editorial quality. Wide landscape composition 3:2, complete objects within frame, balanced breathing room. This must look like an illustrated children's storybook, NOT a 3D render, not photorealistic, not isometric ceramic, not glossy. No text, letters, logos, watermark, UI or slogans.

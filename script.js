@@ -9,9 +9,9 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false');
 }));
 const content = {
- route: ['Mulai hari dengan rencana.', 'Lihat urutan outlet yang akan dikunjungi dan pahami arah perjalanan tim. Rute menjadi panduan kerja, bukan sekadar titik di peta.'],
- outlet: ['Bawa konteks ke setiap kunjungan.', 'Data identitas, lokasi, foto toko, dan catatan outlet membantu sales memahami tujuan sebelum tiba di lapangan.'],
- order: ['Sambungkan kunjungan dengan kebutuhan.', 'Tempatkan pencatatan pesanan dalam alur kerja sales, agar kebutuhan outlet menjadi bagian dari proses distribusi.']
+ route: ['Urutan kunjungan outlet', 'Tentukan urutan outlet yang akan dikunjungi sebagai panduan perjalanan tim sales.'],
+ outlet: ['Informasi outlet', 'Data identitas, lokasi, foto toko, dan catatan outlet membantu sales memahami tujuan sebelum tiba di lapangan.'],
+ order: ['Pencatatan pesanan', 'Tempatkan pencatatan pesanan dalam alur kerja sales, agar kebutuhan outlet menjadi bagian dari proses distribusi.']
 };
 const tabs = [...document.querySelectorAll('[data-tab]')];
 function selectTab(tab) {
@@ -37,3 +37,15 @@ document.querySelector('#replay').addEventListener('click', () => {
 });
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelector('.map-panel svg').pauseAnimations();
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Content stays visible without JavaScript or when reduced motion is requested.
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+ const targets = document.querySelectorAll('.distribution-visual, .features article, .visit-board, .flow article');
+ const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+   if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+  });
+ }, { threshold: 0.12 });
+ targets.forEach(target => { target.classList.add('reveal'); observer.observe(target); });
+ document.documentElement.classList.add('motion-ready');
+}
