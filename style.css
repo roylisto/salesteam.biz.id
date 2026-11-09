@@ -30,3 +30,51 @@ body{-webkit-font-smoothing:antialiased;line-height:1.6}header{height:88px;backg
 @media(max-width:1000px){.hero{padding-top:55px;min-height:580px}.hero-art{margin-right:-15px}h1{font-size:52px;letter-spacing:-2px}.actions{flex-direction:row;gap:20px}.strip{margin-inline:6%;gap:10px}.strip>div{padding-inline:0}.platform{gap:30px}.features article,.features article+article{padding-left:55px}.art-badge{padding:10px}.badge-top{top:-3%}.cta,footer{margin-inline:6%}.hero-art>img{min-height:330px;object-fit:cover}.section{padding-block:70px}}
 @media(max-width:680px){header{height:74px;padding-inline:6%}.brand{font-size:25px}.contact{padding:8px 12px;font-size:10px;margin-right:10px}nav{top:74px;background:#faf9ff}.hero{grid-template-columns:1fr;padding:42px 6% 65px;gap:35px;min-height:0}.hero-copy{max-width:490px}h1{font-size:clamp(38px,10vw,56px);letter-spacing:-1.8px}.hero-art{margin:10px 0 20px;width:100%;max-width:510px;justify-self:center}.hero-art>img{min-height:0}.art-badge strong{font-size:10px}.art-badge{font-size:9px;padding:9px 12px;border-radius:13px}.art-badge>span{width:29px;height:29px;font-size:19px}.badge-top{left:0;top:0}.badge-bottom{bottom:-10px;right:0}.lead{font-size:14px}.actions{gap:20px;flex-wrap:wrap}.button{font-size:12px}.strip{grid-template-columns:1fr;padding:16px 0 24px;gap:0}.strip>div{padding-block:10px}.strip strong{font-size:13px}.strip small{font-size:11px}.section{padding:58px 6%}.platform{grid-template-columns:1fr;gap:18px}.platform>div:first-child,.platform>.intro,.platform>.map-panel,.platform>.features{grid-column:1;grid-row:auto}.platform>.intro{margin-top:0}.platform>.map-panel{margin-top:10px}.platform>.features{margin-top:10px}.features article,.features article+article{padding:22px 0 22px 60px}.feature-symbol{top:26px;float:none}.sales{gap:15px}.visit-board{transform:none;border-radius:20px;padding:24px}.tabs button{padding:10px 13px}.flow article{padding:15px 0 0}.flow h3{font-size:16px}.flow p{font-size:12px}.cta{margin:0 5% 35px;padding:45px 20px;border-radius:25px}.cta:before{left:2%;top:5%;font-size:28px}.cta:after{right:3%;top:78%;font-size:35px}.cta h2{font-size:31px}footer{padding:22px 0;margin-inline:6%}h2{font-size:32px}.development{padding-inline:0}}
 @media(prefers-reduced-motion:reduce){.hero-art,.hero-art>img,.art-badge{animation:none}.button:hover{transform:none}}
+
+/* Responsive layout: readable copy, comfortable controls, stable grid sizing. */
+:root{--page-gutter:clamp(20px,6vw,90px)}
+main{overflow:clip}section[id]{scroll-margin-top:20px}img,canvas{max-width:100%}
+.hero-copy,.sales-copy,.platform>*,.strip>div,.visit-board li>div{min-width:0}
+.lead,.intro,.features p,.sales p,.flow p{color:#626b83}
+header{gap:24px}nav a{display:inline-flex;align-items:center;min-height:44px}
+.tabs button{min-height:44px}.route-card button{width:44px;height:44px;flex-shrink:0}
+.visit-board li>span{flex-shrink:0}.visit-board li small{font-size:12px;line-height:1.6}
+.network-stage{display:none;width:100%;aspect-ratio:600/470;position:relative}
+.network-stage canvas{display:block;width:100%;height:100%}
+.map-panel.has-three .network-stage{display:block}.map-panel.has-three>svg{display:none}
+.map-top,.map-bottom{position:relative;z-index:1}.route-card{z-index:2}
+@media(min-width:761px) and (max-width:1050px){
+ header{padding-inline:4%;gap:16px}nav{gap:16px}.contact{padding:10px 14px}
+ .hero{grid-template-columns:1fr 1fr;padding-inline:5%;gap:20px}h1{font-size:clamp(40px,5.2vw,54px)}
+ .hero-art{margin:0}.art-badge{padding:8px}.art-badge strong{font-size:10px}
+ .platform{gap:30px}.sales{gap:30px}.visit-board{padding:22px}
+ .tabs{display:flex}.tabs button{padding-inline:10px}.strip small{font-size:12px}
+}
+@media(max-width:760px){
+ html{scroll-padding-top:88px}header{height:72px;padding-inline:20px;gap:12px}
+ .brand{font-size:25px;white-space:nowrap}.contact{display:none}
+ #menu{display:grid;place-items:center;width:44px;height:44px;margin-left:auto;border:1px solid #dedcf0;border-radius:12px;background:#ffffffb3;color:var(--primary);font-size:24px}
+ nav{display:none;position:absolute;top:72px;left:0;right:0;padding:12px 20px 20px;background:#faf9ff;border-bottom:1px solid #e3e7f2;box-shadow:0 16px 24px #242c480a}
+ nav.open{display:flex;flex-direction:column;gap:4px}nav a{font-size:15px;padding:10px 12px;border-radius:10px}nav a:hover{background:#eeebfb}
+ .hero{grid-template-columns:1fr;min-height:0;padding:36px 20px 48px;gap:28px}
+ .hero-copy{max-width:560px}.eyebrow{font-size:10px;letter-spacing:1.2px;line-height:1.6}
+ h1{font-size:clamp(37px,8.6vw,58px);letter-spacing:-1.7px;line-height:1.13;margin:20px 0}h1 em{line-height:1.16}
+ .lead{font-size:15px;line-height:1.85;margin-bottom:0}.actions{margin-top:24px;display:flex;flex-direction:row;flex-wrap:wrap;gap:16px 22px}
+ .button{font-size:13px;min-height:50px;padding:13px 20px;gap:18px}.text-link{display:inline-flex;align-items:center;min-height:44px;font-size:13px}
+ .hero-art{margin:10px 0 16px;width:100%;max-width:500px;justify-self:center}.hero-art>img{min-height:0;object-fit:contain}.art-badge{padding:9px 11px;font-size:10px}.art-badge strong{font-size:11px}.badge-top{top:0;left:0}.badge-bottom{right:0;bottom:-12px}
+ .strip{margin:0 20px;padding:12px 0 20px;grid-template-columns:1fr;gap:0}.strip>div{padding:12px 0;gap:14px}.strip strong{font-size:14px}.strip small{font-size:12px;line-height:1.6}
+ .section{padding:52px 20px}h2{font-size:clamp(29px,7vw,38px);letter-spacing:-1px;margin:16px 0}.intro{font-size:15px;line-height:1.85}
+ .platform,.sales{grid-template-columns:1fr;gap:20px}.platform>div:first-child,.platform>.intro,.platform>.map-panel,.platform>.features{grid-column:1;grid-row:auto}.platform>.intro{margin:0}.platform>.features{margin-top:0}
+ .features article,.features article+article{padding:22px 0 22px 60px}.feature-symbol{top:27px;left:0;float:none}.features h3{font-size:18px}.features p,.sales p{font-size:14px;line-height:1.85}
+ .map-panel{border-radius:18px!important}.map-top{font-size:8px;padding:16px 12px}.map-bottom{font-size:9px;padding:14px 12px;gap:10px}.route-card{bottom:51px;left:12px;right:12px;padding:10px;gap:10px}.route-card strong{font-size:12px}.route-card p{font-size:11px}.route-icon{font-size:19px;padding:8px}
+ .tabs{display:flex;width:100%;margin-top:24px;gap:2px}.tabs button{flex:1;font-size:12px;padding:10px 6px;white-space:nowrap}#tab-content{min-height:145px}#tab-content h3{font-size:19px}
+ .visit-board{margin:0;transform:none;padding:22px 18px;border-radius:20px}.visit-board h3{font-size:18px}.visit-board .muted{font-size:12px}.board-heading{font-size:9px;letter-spacing:.5px}.visit-board ol{margin:24px 0 0}.visit-board li{gap:10px;padding-block:18px}.visit-board li strong{font-size:13px}.visit-board li b{flex-shrink:0}
+ .workflow .flow{grid-template-columns:1fr;gap:0;margin:30px 0 20px}.flow:before{display:none}.flow article{padding:20px 0 20px 68px;border:0;text-align:left}.flow article>span{position:absolute;left:0;top:20px}.flow article:not(:last-child):after{content:'';position:absolute;left:24px;top:71px;bottom:-18px;border-left:1px dashed #c5b9e2}.flow h3{font-size:18px;margin:0 0 6px}.flow p{font-size:14px;margin:0}.development{font-size:12px;align-items:flex-start;padding:14px;background:#f1f3fb}.development i{margin-top:6px}
+ .cta{margin:0 20px 28px;padding:36px 18px;border-radius:24px}.cta h2{font-size:clamp(28px,7vw,36px)}.cta p:not(.eyebrow){font-size:14px}.cta .button{max-width:100%;font-size:12px;gap:10px}.cta:before,.cta:after{display:none}
+ footer{margin:0 20px;padding:24px 0;gap:16px}footer>span{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.cta:before,.cta:after{animation:none}}
+/* Benefit icons must not inherit the old full-row mobile span rule. */
+.strip>div>.benefit-icon{width:46px;flex:0 0 46px}
+/* Keep every section readable immediately, including fast scrolls and screenshots. */
+.motion-ready .reveal{opacity:1;transform:none}

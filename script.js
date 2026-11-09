@@ -1,13 +1,22 @@
 const menu = document.querySelector('#menu');
 const nav = document.querySelector('#nav');
-menu.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menu.setAttribute('aria-expanded', String(open));
-  menu.setAttribute('aria-label', open ? 'Tutup navigasi' : 'Buka navigasi');
+function setMenu(open) {
+ nav.classList.toggle('open', open);
+ menu.setAttribute('aria-expanded', String(open));
+ menu.setAttribute('aria-label', open ? 'Tutup navigasi' : 'Buka navigasi');
+ menu.textContent = open ? '×' : '☰';
+}
+menu.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', event => {
+ if (event.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menu.focus(); }
 });
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false');
-}));
+document.addEventListener('click', event => {
+ if (!event.target.closest('header')) setMenu(false);
+});
+window.matchMedia('(min-width: 761px)').addEventListener('change', event => {
+ if (event.matches) setMenu(false);
+});
 const content = {
  route: ['Urutan kunjungan outlet', 'Tentukan urutan outlet yang akan dikunjungi sebagai panduan perjalanan tim sales.'],
  outlet: ['Informasi outlet', 'Data identitas, lokasi, foto toko, dan catatan outlet membantu sales memahami tujuan sebelum tiba di lapangan.'],
