@@ -20,7 +20,7 @@ window.matchMedia('(min-width: 761px)').addEventListener('change', event => {
 const content = {
  route: ['Urutan kunjungan outlet', 'Tentukan urutan outlet yang akan dikunjungi sebagai panduan perjalanan tim sales.'],
  outlet: ['Informasi outlet', 'Data identitas, lokasi, foto toko, dan catatan outlet membantu sales memahami tujuan sebelum tiba di lapangan.'],
- order: ['Pencatatan pesanan', 'Tempatkan pencatatan pesanan dalam alur kerja sales, agar kebutuhan outlet menjadi bagian dari proses distribusi.']
+ order: ['Transaksi langsung & stok bawaan', 'Sales membawa stok dalam kendaraan, melayani pembelian langsung di toko, lalu mencatat penjualan dan pengurangan stok sebelum melanjutkan rute.']
 };
 const tabs = [...document.querySelectorAll('[data-tab]')];
 function selectTab(tab) {
@@ -58,3 +58,23 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
  targets.forEach(target => { target.classList.add('reveal'); observer.observe(target); });
  document.documentElement.classList.add('motion-ready');
 }
+
+// Industry selection remains usable even when WebGL cannot load.
+const categories = {
+ fmcg: {title:'Produk sehari-hari, pergerakan setiap hari.',description:'Makanan kemasan, minuman, dan kebutuhan harian: hubungkan stok yang dibawa sales dengan kunjungan ke toko dan transaksi langsung.',caption:'FMCG · Makanan & minuman',colors:[0x9982cf,0xe5b584,0x8fb9bb],shapes:['bottle','box','can']},
+ care: {title:'Perawatan diri hingga kosmetik.',description:'Bantu kunjungan outlet untuk produk perawatan dan kosmetik dengan konteks stok bawaan, kebutuhan toko, serta transaksi di lapangan.',caption:'Perawatan & kosmetik',colors:[0xd39cb8,0xb99ad7,0xe5c3a0],shapes:['bottle','bottle','box']},
+ home: {title:'Kebutuhan rumah, distribusi yang tertata.',description:'Dari produk kebersihan hingga perlengkapan rumah tangga, susun rute outlet dan hubungkan barang yang dibawa sales dengan penjualan saat kunjungan.',caption:'Kebutuhan rumah tangga',colors:[0x8fb6b0,0xb1bcd9,0xceb08b],shapes:['bottle','box','bottle']},
+ parts: {title:'Perlengkapan dan suku cadang ke outlet tujuan.',description:'Untuk distributor perlengkapan dan suku cadang, jadikan data outlet, rute sales, stok bawaan, dan transaksi sebagai satu alur kerja lapangan.',caption:'Perlengkapan & suku cadang',colors:[0x869cb9,0xb5a3cf,0xd4b394],shapes:['gear','box','gear']}
+};
+let category='fmcg';
+const industryDemo=document.querySelector('[data-commerce="industry"]');
+document.querySelectorAll('[data-industry]').forEach(button=>button.addEventListener('click',()=>{
+ category=button.dataset.industry;
+ document.querySelectorAll('[data-industry]').forEach(el=>el.setAttribute('aria-pressed',String(el===button)));
+ const info=categories[category];
+ document.querySelector('[data-industry-title]').textContent=info.title;
+ document.querySelector('[data-industry-description]').textContent=info.description;
+ industryDemo.querySelector('[data-category-caption]').textContent=info.caption;
+ industryDemo.querySelector('.commerce-canvas').setAttribute('aria-label',`Ilustrasi distribusi ${info.caption} dari gudang menuju outlet`);
+ window.dispatchEvent(new CustomEvent('industrychange', {detail: info}));
+}));

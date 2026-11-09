@@ -15,3 +15,5 @@ Hero menambahkan orbit jaringan, partikel, dan penanda bergerak menggunakan `her
 Peta wilayah menggunakan diorama jalan 3D: gudang, empat toko, rumah, gedung, pohon, dan truk logistik. Truk mengikuti jalan, berhenti untuk menurunkan paket, menandai toko selesai, lalu kembali ke gudang. Tombol replay mengulang pengiriman. Tiga ikon manfaat memakai SVG agar ukurannya konsisten.
 
 Identitas brand menggabungkan ikon rute berbentuk S dan dua titik tim dengan wordmark “salesteam”. Ikon transparan hasil generasi disimpan di `assets/salesteam-icon.png` dan digunakan juga sebagai favicon serta apple-touch-icon. Wordmark dirender sebagai teks agar tetap tajam.
+
+Bagian transaksi menjelaskan sales membawa stok dan menjual langsung di toko. `commerce.js` menampilkan simulasi 24 unit stok, penjualan 6 unit × Rp25.000, dan sisa 18 unit. Bagian industri menjelaskan kecocokan FMCG serta distributor perawatan, kebutuhan rumah, dan suku cadang, dengan pilihan kategori yang mengubah produk 3D dan penjelasannya. Scene dimuat saat mendekati viewport; fallback teks tersedia tanpa WebGL, animasi mendukung reduced motion dan berhenti di luar layar.
