@@ -91,3 +91,15 @@ header{gap:24px}nav a{display:inline-flex;align-items:center;min-height:44px}
 }
 @keyframes hero-copy-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:760px){.hero-particles{inset:-14% -5%}}
+
+/* Consistent vector icons stay legible on every device. */
+.strip>div>.benefit-icon{width:64px;height:64px;flex:0 0 64px;border-radius:20px}
+.strip .benefit-icon svg{display:block;width:34px;height:34px;flex:none}
+.strip>div{gap:18px}.strip strong{font-size:15px}.strip small{font-size:12px}
+.map-panel.has-three .network-stage{aspect-ratio:600/470}
+.map-panel.has-three .route-card{position:relative;bottom:auto;left:auto;right:auto;margin:0 16px 14px;box-shadow:none;border:1px solid #e3e7f2}
+.delivery-progress{display:flex;gap:6px;margin-top:9px}
+.delivery-progress span{width:20px;height:4px;border-radius:4px;background:#e5e6f2}
+.delivery-progress span.delivered{background:#6baf96}
+@media(max-width:760px){.strip>div>.benefit-icon{width:60px;height:60px;flex-basis:60px}.strip .benefit-icon svg{width:32px;height:32px}.strip>div{padding:14px 0}.map-panel.has-three .route-card{margin:0 12px 12px}}
+.route-icon{flex-shrink:0;display:grid;place-items:center}.route-icon svg{width:24px;height:24px}
